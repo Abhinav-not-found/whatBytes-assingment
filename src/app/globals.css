@@ -124,3 +124,11 @@ h2{
   font-size: 24px;
   font-weight: 600;
 }
+.bg-primary{
+  background-color: #0655A5;
+  color: white;
+}
+.bg-secondary{
+  background-color: #002859;
+  color: white;
+}

@@ -4,7 +4,7 @@ import { Search, ShoppingCart } from "lucide-react";
 
 const Navbar = () => {
   return (
-    <header className='flex justify-between bg-[#0655A5] text-white p-4'>
+    <header className='flex justify-between bg-primary text-white p-4'>
       <div>
         <p className='font-semibold text-2xl'>Logo</p>
       </div>
@@ -17,7 +17,7 @@ const Navbar = () => {
         />
       </div>
       <div className='flex gap-4'>
-        <Button className={"flex gap-2 bg-[#002859]"}>
+        <Button className={"flex gap-2 bg-secondary"}>
           <ShoppingCart />
           <p>Cart</p>
         </Button>
