@@ -8,6 +8,8 @@ const ProductGrid = () => {
       <p className='text-center text-xl'>No products found</p>
     )
   }
+  // const filterProducts = products.filter((p)=>p.title.includes('Headphones'))
+  // console.log(filterProducts)
   return (
     <div className='h-fit'>
       <div className='grid grid-cols-3 auto-rows-max gap-y-10'>
