@@ -4,8 +4,8 @@ import ProductGrid from "./ProductGrid";
 
 const Main = () => {
   return (
-    <div className='h-screen flex gap-8 p-8 px-20'>
-      <div className="w-1/5 h-fit">
+    <div className='h-fit flex gap-8 p-8 px-20 relative'>
+      <div className="w-1/5 h-fit sticky top-10">
         <Sidebar />
       </div>
       <div className="w-4/5 h-fit">

@@ -9,7 +9,7 @@ const ProductGrid = () => {
     )
   }
   return (
-    <div>
+    <div className='h-fit'>
       <div className='grid grid-cols-3 auto-rows-max gap-y-10'>
         {products.map((product)=>{
           return <ProductCard key={product.id} data={product}/>

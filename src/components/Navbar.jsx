@@ -4,9 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Search, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 const Navbar = () => {
   const router = useRouter()
+  const [searchInput, setSearchInput] = useState('')
+  
   return (
     <header className='flex justify-between bg-primary text-white py-4 px-20'>
       <div>
@@ -15,6 +18,8 @@ const Navbar = () => {
       <div className='flex items-center gap-2 p-2 px-4 border border-white/50 rounded-lg'>
         <Search className='size-4' />
         <input
+          value={searchInput}
+          onChange={(e)=>setSearchInput(e.target.value)}
           type='text'
           placeholder='Search for products...'
           className='outline-none placeholder:text-white'
