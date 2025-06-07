@@ -1,13 +1,21 @@
+'use client'
+import CartItem from "@/components/CartItem"
 import { Button } from "@/components/ui/button"
+import { useCart } from "@/context/cartContext"
 import { Truck } from "lucide-react"
 
 const CartPage = () => {
+  const {cart} = useCart()
+  console.log(cart)
   return (
     <div className="h-screen px-20 flex gap-8 p-8 bg-stone-100">
       <div className="w-2/3 h-80 ">
         <h1 className="capitalize">My cart</h1>
+        <div>
+          <CartItem/>
+        </div>
       </div>
-      <div className="w-1/3 h-80 bg-white p-4 rounded-xl">
+      <div className="w-1/3 h-fit bg-white p-6 rounded-xl">
         <h2 className="capitalize">order summary</h2>
         <div className="text-md capitalize">
           <div className="flex justify-between border border-x-0 border-t-0 border-stone-200 pb-1 my-2">
