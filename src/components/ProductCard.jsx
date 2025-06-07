@@ -1,31 +1,36 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
 
 const ProductCard = ({ data }) => {
-  const [arrayOfNumber, setArrayOfNumber] = useState([]);
+  const router = useRouter();
 
   const handleAddToCart = (id) => {
-    setArrayOfNumber((prev) => [...prev, id]);
+    console.log("cart");
   };
 
-  console.log(arrayOfNumber);
-
   return (
-    <div className='p-8 bg-white w-80 rounded-xl'>
-      <div className='w-[100px] h-auto'>
+    <div
+      onClick={() => router.push(`/product/${data.id}`)}
+      className='p-8 bg-white w-72 rounded-xl cursor-pointer flex flex-col items-center'
+    >
+      <div className='w-auto h-36'>
         <img
           src={data.image}
           width={160}
           height={160}
           alt={data.alt}
-          style={{ height: "100px", width: "100px" }}
+          style={{ height: "auto", width: "120px" }}
         />
       </div>
       <p className='mt-4'>{data.title}</p>
       <p className='text-xl font-semibold'>${data.price}</p>
       <Button
-        onClick={() => handleAddToCart(data.id)}
+        onClick={(e) => {
+          handleAddToCart(data.id);
+          e.stopPropagation();
+        }}
         className={"bg-primary mt-4"}
       >
         Add to Cart
