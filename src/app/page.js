@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+
 import Main from "@/components/Main";
 import Footer from "@/components/Footer";
 
@@ -6,10 +6,9 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <>
-      <Navbar/>
+    <div className="bg-stone-50">
       <Main/>
       <Footer/>
-    </>
+    </div>
   );
 }
