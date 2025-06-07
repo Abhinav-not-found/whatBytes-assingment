@@ -6,24 +6,37 @@ const Sidebar = () => {
   const searchParams = useSearchParams();
   const router = useRouter()
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [price, setPrice] = useState(50);
+  const [price, setPrice] = useState(100);
 
   const categories = ["All", "Electronics", "Fashion", "Accessories"];
 
   useEffect(() =>{
       const categoryFromURL = searchParams.get('category')
+      const priceFromURL = searchParams.get('price')
+
       if(categoryFromURL) setSelectedCategory(categoryFromURL)
+      if(priceFromURL) setPrice(Number(priceFromURL))
+
   }, [searchParams])
+
+  const updateParams = (key, value )=>{
+    const params = new URLSearchParams(searchParams.toString());
+    if(value === 'All' || value === 100){
+      params.delete(key)
+    }else{
+      params.set(key,value)
+    }
+    router.push("?"+params.toString())
+  }
 
   const handleCategoryChange = (category)=>{
     setSelectedCategory(category)
-    const params = new URLSearchParams(searchParams.toString())
-    if(category === 'All'){
-      params.delete('category')
-    }else{
-      params.set('category',category)
-    }
-    router.push('?'+params.toString())
+    updateParams('category',category);
+  }
+
+  const handlePriceChange = (value) =>{
+    setPrice(value)
+    updateParams('price',value)
   }
 
   return (
@@ -57,7 +70,7 @@ const Sidebar = () => {
           min={0}
           max={100}
           value={price}
-          onChange={(e) => setPrice(e.target.value)}
+          onChange={(e) => handlePriceChange(e.target.value)}
           className="w-full"
         />
       </div>

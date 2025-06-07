@@ -5,12 +5,17 @@ import { products } from '@/productData'
 import { useSearchParams } from 'next/navigation'
 
 const ProductGrid = () => {
-  const searParams = useSearchParams();
-  const categoryFilter = searParams.get('category')
+  const searchParams = useSearchParams();
+  const categoryFilter = searchParams.get('category')
+  const priceFilter = searchParams.get('price') || 100;
 
   const filtered = products.filter((product)=>{
-    if(!categoryFilter || categoryFilter === 'All') return true;
-    return product.category.toLocaleLowerCase() === categoryFilter.toLocaleLowerCase();
+    const matchCategory = 
+    !categoryFilter || categoryFilter === 'All' ? true :
+    product.category.toLocaleLowerCase() === categoryFilter.toLocaleLowerCase()
+
+    const matchPrice = product.price <= priceFilter
+    return matchCategory && matchPrice
   })
 
 
