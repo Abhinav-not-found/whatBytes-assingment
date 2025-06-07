@@ -19,12 +19,12 @@ const ProductDetailPage = () => {
 
   return (
     <div className='flex bg-stone-100 flex-col md:flex-row px-6 md:px-20 py-10 gap-10 h-screen'>
-      <div className='w-full h-fit md:w-1/2 flex justify-center items-center p-8 bg-white rounded-xl shadow-md'>
+      <div className='size-[25rem] md:w-1/2 flex justify-center items-center p-8 bg-white rounded-xl shadow-md'>
         <img
           src={productDetail.image}
           alt='Product Image'
-          width={300}
-          height={300}
+          width={250}
+          height={250}
           className='rounded-lg object-contain'
         />
       </div>

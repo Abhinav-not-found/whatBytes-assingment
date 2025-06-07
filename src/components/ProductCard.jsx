@@ -18,10 +18,10 @@ const ProductCard = ({ data }) => {
       <div className='w-auto h-36'>
         <img
           src={data.image}
-          width={160}
-          height={160}
+          width={150}
+          height={150}
           alt={data.alt}
-          style={{ height: "auto", width: "120px" }}
+          style={{ height: "auto", width: "110px" }}
         />
       </div>
       <p className='mt-4'>{data.title}</p>
