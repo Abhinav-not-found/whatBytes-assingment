@@ -54,7 +54,7 @@ const Navbar = () => {
 
 
       {focus && (
-        <div className='fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex flex-col items-center p-10'>
+        <div className='fixed inset-0 overflow-scroll bg-black/60 backdrop-blur-sm z-50 flex flex-col items-center p-10'>
           <div className='bg-white w-full max-w-3xl rounded-lg flex items-center gap-3 p-4 shadow-lg'>
             <Search className='text-gray-500' />
             <input
@@ -83,14 +83,14 @@ const Navbar = () => {
           </div>
           {searchInput.length > 0 &&
             (filterProducts.length === 0 ? (
-              <>no products</>
+              <p className="text-center mt-4 text-2xl capitalize text-white">no products found</p>
             ) : (
               <div
                 onClick={() => {
                   setFocus(false);
                   setSearchInput("");
                 }}
-                className='grid grid-cols-3 auto-rows-max gap-x-10 gap-y-10 mt-4'
+                className='grid grid-cols-3 auto-rows-max gap-x-10 gap-y-10 mt-4 h-fit'
               >
                 {filterProducts.map((item) => {
                   return <ProductCard key={item.id} data={item} />;
