@@ -1,13 +1,14 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useCart } from "@/context/cartContext";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 
 const ProductCard = ({ data }) => {
   const router = useRouter();
+  const { addToCart } = useCart();
 
   const handleAddToCart = (id) => {
-    console.log("cart");
+    addToCart(id)
   };
 
   return (

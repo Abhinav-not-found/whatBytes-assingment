@@ -27,6 +27,7 @@ const ProductGrid = () => {
   }
   return (
     <div className='h-fit'>
+      <h1 className='capitalize -mt-5 mb-2 text-secondary'>Product listing</h1>
       <div className='grid grid-cols-3 auto-rows-max gap-y-10'>
         {filtered.map((product)=>{
           return <ProductCard key={product.id} data={product}/>

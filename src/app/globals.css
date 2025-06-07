@@ -120,6 +120,10 @@
     @apply bg-background text-foreground;
   }
 }
+h1{
+  font-size: 52px;
+  font-weight: 600;
+}
 h2{
   font-size: 24px;
   font-weight: 600;
@@ -127,6 +131,12 @@ h2{
 .bg-primary{
   background-color: #0655A5;
   color: white;
+}
+.text-primary{
+  color: #0655A5;
+}
+.text-secondary{
+  color: #002859;
 }
 .bg-secondary{
   background-color: #002859;
