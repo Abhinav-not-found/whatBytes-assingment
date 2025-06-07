@@ -3,6 +3,11 @@ import ProductCard from './ProductCard'
 import { products } from '@/productData'
 
 const ProductGrid = () => {
+  if(!products || products.length === 0){
+    return (
+      <p className='text-center text-xl'>No products found</p>
+    )
+  }
   return (
     <div>
       <div className='grid grid-cols-3 auto-rows-max gap-y-10'>
