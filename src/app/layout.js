@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/cartContext";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,11 +26,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <CartProvider>
-          <Navbar/>
-          {children}
-          <Footer/>
-        </CartProvider>
+        <Suspense fallback={<div>Loading...</div>}>
+          <CartProvider>
+            <Navbar/>
+            {children}
+            <Footer/>
+          </CartProvider>
+        </Suspense>
 
       </body>
     </html>
