@@ -3,7 +3,7 @@
 A modern, responsive e-commerce frontend built with **Next.js**, **Tailwind CSS**, and **React Context** for state management. Features live search, product filtering, cart functionality, and clean UI optimized for all screen sizes.
 
 
-> Live :  
+> Live :  https://what-bytes-assingment.vercel.app/
 
 ---
 
