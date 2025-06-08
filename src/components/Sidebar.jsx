@@ -64,7 +64,7 @@ const Sidebar = () => {
       </div>
 
       <div>
-        <p className="font-semibold mb-2">Price: ₹{price}</p>
+        <p className="font-semibold mb-2">Price: ${price}</p>
         <input
           type="range"
           min={0}
