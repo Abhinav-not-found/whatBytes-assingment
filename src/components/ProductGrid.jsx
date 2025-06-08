@@ -18,8 +18,6 @@ const ProductGrid = () => {
     return matchCategory && matchPrice
   })
 
-
-
   if(filtered.length === 0){
     return (
       <p className='text-center text-xl'>No products found</p>

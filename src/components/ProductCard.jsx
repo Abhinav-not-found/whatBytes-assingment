@@ -2,13 +2,15 @@
 import { useCart } from "@/context/cartContext";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { Check } from "lucide-react";
 
 const ProductCard = ({ data }) => {
   const router = useRouter();
-  const { addToCart } = useCart();
-
+  const { cart, addToCart } = useCart();
+  const isInCart = cart.some((item) => item.id === data.id);
   const handleAddToCart = (data) => {
-    addToCart(data)
+    addToCart(data);
   };
 
   return (
@@ -27,16 +29,25 @@ const ProductCard = ({ data }) => {
       </div>
       <p className='mt-4'>{data.title}</p>
       <p className='text-xl font-semibold'>${data.price}</p>
-      <Button
-        onClick={(e) => {
-          handleAddToCart(data);
-          e.stopPropagation();
-        }}
-        className={"bg-primary mt-4"}
-      >
-        Add to Cart
-      </Button>
-      {/* <p>star rating(optional)</p> */}
+      {isInCart ? (
+        <Button
+          onClick={(e) => e.stopPropagation()}
+          className={"bg-green-700 hover:bg-green-700 mt-4"}
+        >
+          <Check />
+          Added
+        </Button>
+      ) : (
+        <Button
+          onClick={(e) => {
+            handleAddToCart(data);
+            e.stopPropagation();
+          }}
+          className={"bg-primary mt-4"}
+        >
+          Add to Cart
+        </Button>
+      )}
     </div>
   );
 };

@@ -1,15 +1,17 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { ShoppingCart } from "lucide-react";
+import { Check, ShoppingCart } from "lucide-react";
 import { useParams } from "next/navigation";
 import { products } from "@/productData";
 import { useCart } from "@/context/cartContext";
+import { Button } from "@/components/ui/button";
 
 const ProductDetailPage = () => {
   const { id } = useParams();
   const [productDetail, setProductDetail] = useState(null);
   const productId = Number(id);
-  const { addToCart } = useCart();
+  const { cart, addToCart } = useCart();
+  const isInCart = cart.some((item)=>item.id === productDetail.id)
 
   const handleAddToCart = (data) => {
     addToCart(data);
@@ -20,7 +22,9 @@ const ProductDetailPage = () => {
   }, []);
 
   if (productDetail === null) {
-    return <>Product not found</>;
+    return <div className="h-screen">
+      <h1 className="text-center mt-20">Product not found</h1>
+    </div>;
   }
 
   return (
@@ -44,23 +48,23 @@ const ProductDetailPage = () => {
         </p>
         <p className='text-gray-700'>{productDetail.description}</p>
         <p className='text-sm'>Category: {productDetail.category}</p>
-
-        {/* <div className='flex items-center gap-4'>
-          <span className='font-medium text-gray-800'>Quantity:</span>
-          <div className='flex items-center gap-2'>
-            <button className='px-3 py-1 bg-gray-300 rounded'>-</button>
-            <span>1</span>
-            <button className='px-3 py-1 bg-gray-300 rounded'>+</button>
-          </div>
-        </div> */}
-
-        <button
-          onClick={() => handleAddToCart(productDetail)}
-          className='mt-4 flex gap-2 items-center p-4 px-8 cursor-pointer bg-primary rounded-lg text-lg hover:bg-secondary'
-        >
-          <ShoppingCart className='size-5' />
-          Add to Cart
-        </button>
+        {isInCart ? (
+          <button
+            onClick={(e) => e.stopPropagation()}
+            className={"bg-green-700 text-white hover:bg-green-700 mt-4 flex gap-2 items-center p-4 px-8 cursor-pointer rounded-lg text-lg"}
+          >
+            <Check />
+            Added
+          </button>
+        ) : (
+          <button
+            onClick={() => handleAddToCart(productDetail)}
+            className='mt-4 flex gap-2 items-center p-4 px-8 cursor-pointer bg-primary rounded-lg text-lg hover:bg-secondary'
+          >
+            <ShoppingCart className='size-5' />
+            Add to Cart
+          </button>
+        )}
       </div>
     </div>
   );
