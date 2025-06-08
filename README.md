@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🛍️ Responsive E-Commerce App
 
-## Getting Started
+A modern, responsive e-commerce frontend built with **Next.js**, **Tailwind CSS**, and **React Context** for state management. Features live search, product filtering, cart functionality, and clean UI optimized for all screen sizes.
 
-First, run the development server:
+
+> Live :  
+
+---
+
+## 🚀 Features
+
+- **Product Listing** – Displayed from `productData.js` using reusable `ProductCard`
+- **Product Detail Page** – Route-based detailed view of each product
+- **Live Search Modal** – Real-time product search with Escape key to close
+- **Filter by Category & Price** – Easily narrow down product results
+- **Cart System**
+  - Add/remove items
+  - Cart page with subtotal
+  - Global cart state via Context
+  - Cart badge with item count on Navbar
+- **Responsive Design**
+  - Mobile-optimized layout
+  - Simplified search input on small devices
+  - Tailwind-based styling with Lucide icons
+
+---
+<br/>
+<br/>
+
+## 💻 How to Use
+
+### 1. Clone & Install
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+npm install
+```
+
+---
+
+### 2. Run the App
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
+<br/>
+<br/>
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+# Folder Overview
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- components&nbsp;&nbsp;&nbsp; &nbsp;→&nbsp; &nbsp; UI elements (ProductCard, - CartItem, Avatar, Button, etc.)
+- context&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;→ &nbsp; &nbsp; artContext.js (global state)
+- productData.js &nbsp;→ &nbsp; &nbsp; static product list
 
-## Learn More
+<br/>
+<br/>
 
-To learn more about Next.js, take a look at the following resources:
+# Built With :
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Next.js** – App structure & routing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**React** – Component-based architecture
 
-## Deploy on Vercel
+**Tailwind CSS** – Styling
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Lucide-react** – Icons
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**React Context API** – Cart management
+
+
+<br/>
+<br/>
+
+# Author :
+Made with ❤️ by **Abhinav Kumar**
+
