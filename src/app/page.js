@@ -1,7 +1,5 @@
 import Main from "@/components/Main";
 
-// send all the functions to a service folder
-// make skeletons
 // responsiveness
 // readme page before deployment
 

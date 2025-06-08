@@ -16,15 +16,15 @@ const ProductCard = ({ data }) => {
   return (
     <div
       onClick={() => router.push(`/product/${data.id}`)}
-      className='p-8 bg-white w-72 rounded-xl cursor-pointer flex flex-col items-center'
+      className='p-4 md:p-6 lg:p-8 bg-white md:w-56 lg:w-72 rounded-xl cursor-pointer flex flex-col items-center'
     >
-      <div className='w-auto h-36'>
+      <div className='w-auto h-32 md:h-36 '>
         <img
           src={data.image}
           width={150}
           height={150}
           alt={data.alt}
-          style={{ height: "auto", width: "110px" }}
+          className="h-auto w-[105px] md:w-[110px]"
         />
       </div>
       <p className='mt-4'>{data.title}</p>

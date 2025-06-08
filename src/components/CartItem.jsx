@@ -14,7 +14,7 @@ const CartItem = ({info}) => {
   return (
     <div className='w-full h-32 bg-white rounded-lg p-4 flex justify-between'>
       <div className='flex gap-4'>
-        <div className='bg-red-50 h-full w-28 rounded-md'
+        <div className='bg-red-50 h-full w-24 md:w-24 lg:w-28 rounded-md'
           style={{
             backgroundImage:`url('${info.image}')`,
             backgroundSize:'cover',

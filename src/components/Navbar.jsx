@@ -22,15 +22,15 @@ const Navbar = () => {
 
   return (
     <header className='relative'>
-      <nav className='flex justify-between bg-primary text-white py-4 px-20'>
+      <nav className='flex justify-between items-center bg-primary text-white py-4 px-2 md:px-10 lg:px-20'>
         <div>
-          <Link href={"/"} className='font-semibold text-2xl'>
+          <Link href={"/"} className='font-semibold text-lg md:text-2xl'>
             Logo
           </Link>
         </div>
         <div
           onClick={() => setFocus(true)}
-          className='flex items-center gap-2 p-2 px-4 border border-white/50 rounded-lg'
+          className='flex items-center gap-2 p-1 md:p-2 md:px-4 border border-white/50 rounded-lg'
         >
           <Search className='size-4' />
           <input
@@ -40,7 +40,7 @@ const Navbar = () => {
             className='bg-transparent outline-none placeholder:text-white cursor-pointer'
           />
         </div>
-        <div className='flex gap-4'>
+        <div className='flex gap-1 md:gap-4'>
           <Button
             onClick={() => router.push("/cart")}
             className={"flex gap-2 bg-secondary relative"}
@@ -103,7 +103,7 @@ const Navbar = () => {
                   setFocus(false);
                   setSearchInput("");
                 }}
-                className='grid grid-cols-3 auto-rows-max gap-x-10 gap-y-10 mt-4 h-fit'
+                className='grid grid-cols-1 md:grid-cols-3 auto-rows-max gap-x-10 gap-y-10 mt-4 h-fit'
               >
                 {filterProducts.map((item) => {
                   return <ProductCard key={item.id} data={item} />;

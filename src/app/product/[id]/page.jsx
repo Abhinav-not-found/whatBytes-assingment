@@ -28,8 +28,8 @@ const ProductDetailPage = () => {
   }
 
   return (
-    <div className='flex bg-stone-100 flex-col md:flex-row px-6 md:px-20 py-10 gap-10 h-screen'>
-      <div className='size-[25rem] md:w-1/2 flex justify-center items-center p-8 bg-white rounded-xl shadow-md'>
+    <div className='flex bg-stone-100 flex-col md:flex-row px-6 md:px-10 lg:px-20 py-10 gap-10 h-screen'>
+      <div className=' size-[20rem] md:size-[25rem] md:w-1/2 flex justify-center items-center p-8 bg-white rounded-xl shadow-md'>
         <img
           src={productDetail.image}
           alt='Product Image'
@@ -40,7 +40,7 @@ const ProductDetailPage = () => {
       </div>
 
       <div className='w-full md:w-1/2 space-y-6 p-8'>
-        <p className='text-4xl font-bold text-gray-800'>
+        <p className='text-4xl font-bold -mt-10 md:-mt-5 lg:mt-0 text-gray-800'>
           {productDetail.title}
         </p>
         <p className='text-2xl text-green-600 font-semibold'>
