@@ -7,8 +7,8 @@ const ProductCard = ({ data }) => {
   const router = useRouter();
   const { addToCart } = useCart();
 
-  const handleAddToCart = (id) => {
-    addToCart(id)
+  const handleAddToCart = (data) => {
+    addToCart(data)
   };
 
   return (
@@ -29,7 +29,7 @@ const ProductCard = ({ data }) => {
       <p className='text-xl font-semibold'>${data.price}</p>
       <Button
         onClick={(e) => {
-          handleAddToCart(data.id);
+          handleAddToCart(data);
           e.stopPropagation();
         }}
         className={"bg-primary mt-4"}

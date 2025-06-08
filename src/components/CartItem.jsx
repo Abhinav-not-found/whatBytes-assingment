@@ -6,9 +6,9 @@ const CartItem = ({info}) => {
 
   const { removeFromCart } = useCart()
 
-  const handleDelete = ()=>{
+  const handleDelete = (id)=>{
+    removeFromCart(id)
     console.log('removing item: ', info.id)
-    window.location.reload()
   }
 
   return (
@@ -27,7 +27,7 @@ const CartItem = ({info}) => {
           <p className='text-muted-foreground'>{info.category}</p>
         </div>
       </div>
-      <button onClick={handleDelete} className='hover:bg-red-100 rounded-sm transition cursor-pointer text-muted-foreground hover:w-14 hover:flex hover:justify-center hover:items-center hover:text-stone-700'>
+      <button onClick={()=>handleDelete(info.id)} className='hover:bg-red-100 rounded-sm transition cursor-pointer text-muted-foreground hover:w-14 hover:flex hover:justify-center hover:items-center hover:text-stone-700'>
         <Trash className='size-4'/>
       </button>
 

@@ -3,12 +3,11 @@ import CartItem from "@/components/CartItem";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/context/cartContext";
 import { Truck } from "lucide-react";
-import { products } from "@/productData";
 
 const CartPage = () => {
   const { cart } = useCart();
 
-  const cartProducts = cart.map((id)=>products.find((product)=>product.id === id)).filter(Boolean);
+  const cartProducts = cart;
   const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
 
   return (
