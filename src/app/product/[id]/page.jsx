@@ -3,18 +3,24 @@ import React, { useEffect, useState } from "react";
 import { ShoppingCart } from "lucide-react";
 import { useParams } from "next/navigation";
 import { products } from "@/productData";
+import { useCart } from "@/context/cartContext";
 
 const ProductDetailPage = () => {
   const { id } = useParams();
-  const [productDetail, setProductDetail]=useState(null)
-  const productId = Number(id)
+  const [productDetail, setProductDetail] = useState(null);
+  const productId = Number(id);
+  const { addToCart } = useCart();
 
-  useEffect(() =>{
-      setProductDetail(products.find((p)=>p.id === productId))
-  }, [])
- 
-  if(productDetail === null){
-    return <>Product not found</>
+  const handleAddToCart = (data) => {
+    addToCart(data);
+  };
+
+  useEffect(() => {
+    setProductDetail(products.find((p) => p.id === productId));
+  }, []);
+
+  if (productDetail === null) {
+    return <>Product not found</>;
   }
 
   return (
@@ -30,23 +36,28 @@ const ProductDetailPage = () => {
       </div>
 
       <div className='w-full md:w-1/2 space-y-6 p-8'>
-        <p className='text-4xl font-bold text-gray-800'>{productDetail.title}</p>
-        <p className='text-2xl text-green-600 font-semibold'>${productDetail.price}</p>
-        <p className='text-gray-700'>
-          {productDetail.description}
+        <p className='text-4xl font-bold text-gray-800'>
+          {productDetail.title}
         </p>
-        <p className='text-sm text-gray-500'>Category: {productDetail.category}</p>
+        <p className='text-2xl text-green-600 font-semibold'>
+          ${productDetail.price}
+        </p>
+        <p className='text-gray-700'>{productDetail.description}</p>
+        <p className='text-sm'>Category: {productDetail.category}</p>
 
-        <div className='flex items-center gap-4'>
+        {/* <div className='flex items-center gap-4'>
           <span className='font-medium text-gray-800'>Quantity:</span>
           <div className='flex items-center gap-2'>
             <button className='px-3 py-1 bg-gray-300 rounded'>-</button>
             <span>1</span>
             <button className='px-3 py-1 bg-gray-300 rounded'>+</button>
           </div>
-        </div>
+        </div> */}
 
-        <button className='mt-4 flex gap-2 items-center p-4 px-8 cursor-pointer bg-primary rounded-lg text-lg hover:bg-secondary'>
+        <button
+          onClick={() => handleAddToCart(productDetail)}
+          className='mt-4 flex gap-2 items-center p-4 px-8 cursor-pointer bg-primary rounded-lg text-lg hover:bg-secondary'
+        >
           <ShoppingCart className='size-5' />
           Add to Cart
         </button>

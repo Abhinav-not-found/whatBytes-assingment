@@ -5,13 +5,16 @@ import { products } from "@/productData";
 import { Search, ShoppingCart, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
+import { Badge } from "@/components/ui/badge";
+import { useCart } from "@/context/cartContext";
 
 const Navbar = () => {
   const router = useRouter();
   const [focus, setFocus] = useState(false);
   const [searchInput, setSearchInput] = useState("");
+  const { cart } = useCart()
 
   const filterProducts = products.filter(
     (p) => p.title.includes(searchInput) || p.description.includes(searchInput)
@@ -40,8 +43,17 @@ const Navbar = () => {
         <div className='flex gap-4'>
           <Button
             onClick={() => router.push("/cart")}
-            className={"flex gap-2 bg-secondary"}
+            className={"flex gap-2 bg-secondary relative"}
           >
+            {cart.length > 0 && (
+              <Badge
+                className={
+                  "bg-stone-100 text-black rounded-full px-1.5 py-0.5  absolute -top-2 -right-2"
+                }
+              >
+                {cart.length}
+              </Badge>
+            )}
             <ShoppingCart />
             <p>Cart</p>
           </Button>
@@ -51,7 +63,6 @@ const Navbar = () => {
           </Avatar>
         </div>
       </nav>
-
 
       {focus && (
         <div className='fixed inset-0 overflow-scroll bg-black/60 backdrop-blur-sm z-50 flex flex-col items-center p-10'>
@@ -83,7 +94,9 @@ const Navbar = () => {
           </div>
           {searchInput.length > 0 &&
             (filterProducts.length === 0 ? (
-              <p className="text-center mt-4 text-2xl capitalize text-white">no products found</p>
+              <p className='text-center mt-4 text-2xl capitalize text-white'>
+                no products found
+              </p>
             ) : (
               <div
                 onClick={() => {
@@ -99,8 +112,6 @@ const Navbar = () => {
             ))}
         </div>
       )}
-
-
     </header>
   );
 };

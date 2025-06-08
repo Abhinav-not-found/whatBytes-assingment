@@ -5,7 +5,6 @@ const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-  console.log(cart)
 
   useEffect(() => {
     try {
@@ -35,10 +34,12 @@ export const CartProvider = ({ children }) => {
       if (alreadyInCart) return prev;
       return [...prev, product];
     });
+    // window.location.reload()
   };
-
+  
   const removeFromCart = (id) => {
     setCart((prev) => prev.filter((item) => item.id !== id));
+    // window.location.reload()
   };
 
   const clearCart = () => {
